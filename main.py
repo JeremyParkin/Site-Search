@@ -35,7 +35,7 @@ websites = ['flytrippers.com',
 'thriftytraveler.com',
 'www.cnn.com/cnn-underscored',
 'www.cnbc.com/select',
-'www.google.ca']
+'news.google.com']
 
 st.header("Aeroplan: Key Site Search")
 
@@ -60,10 +60,12 @@ if submitted:
     end_date = date_range[1].strftime("%m/%d/%Y")
 
     all_links = ""
+    number = 1
     for website in websites:
         target_url = f'www.google.com/search?as_sitesearch={website}&q={keywords}&tbs=cdr:1,cd_min:{start_date},cd_max:{end_date}'
         # all_links += target_url + '\n'
-        st.write(target_url)
+        st.write(f"{number}. {target_url}")
+        number += 1
         webbrowser.open_new_tab(target_url)
 
     # st.write(all_links)
